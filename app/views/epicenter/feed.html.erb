@@ -18,20 +18,7 @@
 		</div>
 
 		<% @following_tweets.each do |tweet| %>
-			<div class="panel panel-body">
-				<div class="row">
-					<div class="col-xs-2">
-						<% if tweet.user.avatar.blank? == false %>
-							<%= image_tag tweet.user.avatar.url, class: "img-circle icon" %>
-						<% end %>
-					</div>
-					<div class="col-xs-10">
-						<p><strong><%= link_to tweet.user.name, show_user_path(id: tweet.user.id) %></strong> <span class="text-muted">@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></span></p>
-						<p><%= tweet.message.html_safe %></p>
-						<p><small><%= time_ago_in_words(tweet.created_at) %> ago</small></p>
-					</div>
-				</div>
-			</div>
+			<%= render 'a_tweet', tweet: tweet %>
 		<% end %>
 
 	</div> <!-- end of main body -->

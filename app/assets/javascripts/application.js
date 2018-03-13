@@ -15,3 +15,18 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+  $('#unfollow_btn').hover(function(){
+  	// when we hover over
+    $(this).removeClass('btn-twitter');
+    $(this).addClass('btn-danger');
+    $(this).html("Unfollow");
+  }, function(){
+  	// when we hover off
+    $(this).html("Following");
+    $(this).removeClass('btn-danger');
+    $(this).addClass('btn-twitter');
+  });
+})

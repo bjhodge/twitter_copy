@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message, id: :tweet_message %>
+  <div class="form-group">
+    <%= form.text_field :message, placeholder: "What's happening?", class: "form-control", id: :tweet_message %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 

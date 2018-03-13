@@ -1,0 +1,14 @@
+<div class="panel panel-body">
+	<div class="row">
+		<div class="col-xs-2">
+			<% if tweet.user.avatar.blank? == false %>
+				<%= image_tag tweet.user.avatar.url, class: "img-circle icon" %>
+			<% end %>
+		</div>
+		<div class="col-xs-10">
+			<p><strong><%= link_to tweet.user.name, show_user_path(id: tweet.user.id) %></strong> <span class="text-muted">@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></span> • <%= time_ago_in_words(tweet.created_at) if Time.now - tweet.created_at < 86400 %> 
+				<%= tweet.created_at.strftime('%b%e') if Time.now - tweet.created_at > 86400 %></p>
+			<p><%= tweet.message.html_safe %></p>
+		</div>
+	</div>
+</div>
